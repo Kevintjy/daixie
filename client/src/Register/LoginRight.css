@@ -1,0 +1,25 @@
+#login-right {
+    width:100%; 
+    max-width: 350px;
+}
+
+#login-button {
+    justify-content: center;
+    text-align: center;
+    /* margin-left: 32%; */
+    padding: 12px;
+}
+
+#button-container {
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+#wrongPassword {
+    display: none;
+}
+
+#loginSuccess {
+    display: none;
+}
