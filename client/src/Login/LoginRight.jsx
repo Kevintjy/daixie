@@ -21,6 +21,7 @@ class LoginRight extends React.Component {
             password: "",
             type:0
         };
+        this.setUsername = props.props.setUsername
     }
 
     
@@ -84,8 +85,9 @@ class LoginRight extends React.Component {
             }else if(jsonResult.result == 2){
                 alert("admin does not approve you")
             }else{
-                this.props.setState({username: this.state.username})
-                window.location.replace("./../")
+                console.log(this.setUsername)
+                this.setUsername({"username": this.state.username})
+                window.location.replace("./../homepage")
             }
 	    }).catch((error) => {
 	    	// if an error occured it will be logged to the JavaScript console here.

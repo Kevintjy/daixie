@@ -1,9 +1,9 @@
-import React from 'react';
-import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Route, Switch, BrowserRouter} from 'react-router-dom';
 import {Login} from './Login';
 import {Register} from './Register'
 import { Redirect } from 'react-router';
-// import {Homepage} from './Homepage'
+import {Homepage} from './Homepage'
 import './App.css';
 
 class App extends React.Component {
@@ -22,14 +22,20 @@ class App extends React.Component {
     //     .catch(error => {
     //         console.log(error);
     //     });
+
+  }
+  state = {
+    username: ""
   }
 
-  state = {
-    username: null,
+  setUsername(name){
+    this.setState({username:name})
   }
+
 
   render() {
-    const username = this.state.username;
+    const username = this.state.username
+    const setUsername = this.setUsername
     return (
         <div>
         <BrowserRouter>
@@ -40,10 +46,11 @@ class App extends React.Component {
             {currentUser&&currentUser.status==1&&<Route exact path="/" render={() => (<Loading to="/" />)} />}
             {!currentUser&&<Route exact path="/" render={() => (<Loading app = {this} state={this.state} />)} />} */}
             {/* {username&&<Route exact path="/" render={() => (<Homepage app = {this} state={this.state} />)}/>} */}
+            <Route path='/homepage' render={() => <Homepage/>}/>
             <Route exact path='/' render={() => 
-                            (username ? <Redirect to="/register" /> : <Login state={this.state}/>)}/>
+                            (username ? <Redirect to="/homepage" /> : <Login app={this} setUsername={this.setUsername}/>)}/>
             <Route exact path='/register' render={() => 
-                            (<Register state={this.state}/>)}/>
+                            (<Register/>)}/>
             {/* <Route exact path='/recoverpassword' render={() => 
                             (<RecoverPassword state={this.state}/>)}/> */}
             {/* <Route exact path='/admin' render={() => 

@@ -1,9 +1,11 @@
-// import React from 'react';
-// export function Homepage(props) {
+import React  from 'react';
 
-//     return(
-//         <div>
-//             here is my homepage
-//         </div>
-//         );
-// }
+
+export function Homepage() {
+    console.log("I am homepage")
+    return(
+        <div>
+            here is my homepage
+        </div>
+        );
+}

@@ -6,10 +6,13 @@ import LoginRight from "./LoginRight";
 import "./Login.css"
 
 class Login extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
         return (
             <Grid container>
-                    <LoginRight />
+                    <LoginRight props={this.props}/>
                 </Grid>
         )
     }
